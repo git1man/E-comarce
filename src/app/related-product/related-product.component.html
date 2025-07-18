@@ -1,0 +1,15 @@
+<div class="container my-4" *ngIf="related.length > 0">
+  <h4 class="mb-3">Related Products</h4>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let r of related">
+      <div class="card h-100 shadow-sm">
+        <img [src]="'http://localhost:3000/uploads/' + r.imgURL" class="card-img-top" />
+        <div class="card-body">
+          <h6 class="card-title">{{ r.name }}</h6>
+          <p class="card-text">${{ r.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

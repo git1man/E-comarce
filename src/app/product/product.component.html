@@ -1,0 +1,25 @@
+<app-header-user></app-header-user>
+<div class="container my-4" *ngIf="!isLoading && product">
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="'http://localhost:3000/uploads/' + product.imgURL" class="img-fluid rounded shadow" />
+    </div>
+    <div class="col-md-6">
+      <h2>{{ product.name }}</h2>
+      <p><strong>Description:</strong> {{ product.desc }}</p>
+      <p><strong>Price:</strong> ${{ product.price }}</p>
+      <p><strong>Stock:</strong> {{ product.stock }}</p>
+      <p><strong>Categories:</strong> {{ product.category.join(', ') }}</p>
+    </div>
+  </div>
+
+  <hr class="my-5" />
+  <app-related-product [productId]="productId"></app-related-product>
+</div>
+
+<div *ngIf="isLoading" class="text-center mt-5">Loading product...</div>
+<div *ngIf="error" class="alert alert-danger text-center mt-5">{{ error }}</div>
+<app-related-product></app-related-product>
+<footer>
+  <app-footer-user></app-footer-user>
+</footer>

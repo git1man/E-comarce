@@ -1,0 +1,25 @@
+<div *ngIf="loading">Loading purchases...</div>
+
+<table *ngIf="!loading" class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Email</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of purchases">
+      <td>{{ p.user?.name }}</td>
+      <td>{{ p.user?.email }}</td>
+      <td>{{ p.product?.name }}</td>
+      <td>{{ p.price | currency }}</td>
+      <td>{{ p.quantity }}</td>
+      <td>{{ p.createdAt | date: 'short' }}</td>
+    </tr>
+  </tbody>
+</table>
+
